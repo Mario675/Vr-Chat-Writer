@@ -71,8 +71,25 @@ Write(What_Line)
         {
             
             IniRead, Line_read, Plaintext.txt, Your_text, Line_%What_Line%
+
+            Length_of_line := StrLen(Line_read)
+            msgbox %Length_of_line% = This is the Length_of_line
+
+            Line_Count = 1
+            Loop, %Length_of_line%
+            {
+                
+                MsgBox, % SubStr(Line_read, Line_Count, 1)
+                Line_Count += 1
+
+            }
             
-            msgbox %Line_read% dot dot dot
+
+
+            
+
+            ;msgbox %Line_read%
+
             return
         }
 
