@@ -46,7 +46,7 @@ Create_Files_For_New_Users()
 Input_Mode := null
 Modesettings()
 {
-    ;Mode settings should be used to update the modes in the entire program.
+    ;This should be used to prompt user of what option on startup. 
     global Input_Mode ;This makes sure the variable goes outside of this function unto other settings.
     IniRead, Input_Mode, Settings.ini, Settings, Input_Mode
 
@@ -61,13 +61,41 @@ Modesettings()
 What_Line := null
 Write(What_Line)
 {
+    global Input_Mode
     ;msgbox HI FROM WRITELINE
-
-
-    IniRead, Line_read, Plaintext.txt, Your_text, Line_%What_Line%
-    msgbox %Line_read%
-
     
+
+    switch Input_Mode
+    {
+        case 0:
+        {
+            
+            IniRead, Line_read, Plaintext.txt, Your_text, Line_%What_Line%
+            
+            msgbox %Line_read% dot dot dot
+            return
+        }
+
+        case 1:
+        {
+            Msgbox mode 1 is not implemented yet. 
+            ExitApp
+        }
+        
+
+        case 2:
+        {
+            Msgbox mode 2 is not implemented yet. 
+            exitapp
+        }
+
+        Msgbox Input_Mode Over 2
+        exitapp
+    }
+
+
+
+
 
 
 
