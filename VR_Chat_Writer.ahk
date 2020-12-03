@@ -70,16 +70,20 @@ Write(What_Line)
         case 0:
         {
             
+            ;Step 1, read the characters separately.
             IniRead, Line_read, Plaintext.txt, Your_text, Line_%What_Line%
 
             Length_of_line := StrLen(Line_read)
             msgbox %Length_of_line% = This is the Length_of_line
 
+            ;Step 2, translate letters in a text file, over to movements in a mouse.
             Line_Count = 1
             Loop, %Length_of_line%
             {
+                ;MsgBox, % SubStr(Line_read, Line_Count, 1) ;Debug 
+
                 
-                MsgBox, % SubStr(Line_read, Line_Count, 1)
+
                 Line_Count += 1
 
             }
@@ -87,8 +91,6 @@ Write(What_Line)
 
 
             
-
-            ;msgbox %Line_read%
 
             return
         }
